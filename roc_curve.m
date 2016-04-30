@@ -73,12 +73,25 @@ function ROC_data = roc_curve(data, dispp, dispt)
         FN = L - TP;                                    % False negatives
         TN = L - FP;                                    % True negatives
         
+           
         curve(id_t,1) = TP/(TP + FN);   % Sensitivity
         curve(id_t,2) = TN/(TN + FP);	% Specificity
         
+        %display '-------------------- ' 
+        %id_t
+        threshold = thres(id_t);
+        TPR1= TP/(TP + FN);
+        FPR1= FP/(TN + FP);
+        Accuracy1 = (TP+TN)/(TP+TN+FP+FN);
+        PPV1 = TP/(TP+FP); 
+        NPV1=  TN/(TN+FN);
+        %display '-------------------- ' 
+        
         % Distance between each point and the optimum point (0,1)
         distance(id_t)= sqrt((1-curve(id_t,1))^2+(curve(id_t,2)-1)^2);
+        storeROC(threshold,TPR1,FPR1,Accuracy1,PPV1,NPV1);
     end
+    
     
     % Optimum threshold and parameters
     [~, opt] = min(distance);
