@@ -108,6 +108,6 @@ fprintf(fileID, '%s %7s %7s %12s %7s %7s\r\n', 'theshold', ' TPR', 'FPR', 'Accur
 fclose(fileID);
 
 figure;
-ROC_CURVE=roc_curve(data,1,1);
+ROC_CURVE=roc_curve_editedJJ(data,1,1);
 
 

@@ -45,7 +45,8 @@
 %   Date:    02/09/2015                                                   %
 %   E-mail:  vicmarcag (dot) gmail (dot) com                              %
 % ----------------------------------------------------------------------- %
-function ROC_data = roc_curve(data, dispp, dispt)
+% edited by: Javier James (4170253)
+function ROC_data = roc_curve_editedJJ(data, dispp, dispt)
 
     % Setting default parameters and detecting errors
     if(nargin<2), dispp = 1;    end
